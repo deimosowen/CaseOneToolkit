@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace CaseMapCoreInitExtension.Forms
+namespace CaseOneToolkit.Forms
 {
     partial class CreateDatabaseForm
     {

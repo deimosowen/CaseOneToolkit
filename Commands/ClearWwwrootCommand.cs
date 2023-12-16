@@ -2,11 +2,9 @@
 using Microsoft.VisualStudio.Shell.Interop;
 using System;
 using System.ComponentModel.Design;
-using System.Diagnostics;
-using System.Threading.Tasks;
 using Task = System.Threading.Tasks.Task;
 
-namespace CaseMapCoreInitExtension.Commands
+namespace CaseOneToolkit.Commands
 {
     /// <summary>
     /// Command handler
@@ -85,7 +83,7 @@ namespace CaseMapCoreInitExtension.Commands
 
             try
             {
-                string projectRoot = await SolutionUtilities.GetActiveProjectRootPathAsync();
+                var projectRoot = await SolutionUtilities.GetActiveProjectRootPathAsync();
                 if (projectRoot == null)
                 {
                     VsShellUtilities.ShowMessageBox(
@@ -98,10 +96,10 @@ namespace CaseMapCoreInitExtension.Commands
                     return;
                 }
 
-                string script = $@"Remove-Item -Path '{projectRoot}\Sites\CaseMap.Core\wwwroot\bundles' -Recurse;
+                var script = $@"Remove-Item -Path '{projectRoot}\Sites\CaseMap.Core\wwwroot\bundles' -Recurse;
                     Remove-Item -Path '{projectRoot}\Sites\CaseMap.Core\wwwroot\Content' -Recurse;";
 
-                PowerShellExecutor.RunScript(script);
+                ScriptExecutor.RunScript(script);
             }
             catch (Exception ex)
             {

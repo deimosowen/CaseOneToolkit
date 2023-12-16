@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using Task = System.Threading.Tasks.Task;
 
-namespace CaseMapCoreInitExtension
+namespace CaseOneToolkit
 {
     /// <summary>
     /// This is the class that implements the package exposed by this assembly.
@@ -25,12 +25,12 @@ namespace CaseMapCoreInitExtension
     /// </para>
     /// </remarks>
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-    [Guid(CaseMapCoreInitExtensionPackage.PackageGuidString)]
+    [Guid(CaseOneToolkitPackage.PackageGuidString)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
-    public sealed class CaseMapCoreInitExtensionPackage : AsyncPackage
+    public sealed class CaseOneToolkitPackage : AsyncPackage
     {
         /// <summary>
-        /// CaseMapCoreInitExtensionPackage GUID string.
+        /// CaseOneToolkitPackage GUID string.
         /// </summary>
         public const string PackageGuidString = "4d10bff6-1511-474f-a280-1a81b6915897";
 
@@ -48,9 +48,9 @@ namespace CaseMapCoreInitExtension
             // When initialized asynchronously, the current thread may be a background thread at this point.
             // Do any initialization that requires the UI thread after switching to the UI thread.
             await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
-            await CaseMapCoreInitExtension.Commands.CreateDatabaseCommand.InitializeAsync(this);
-            await CaseMapCoreInitExtension.Commands.CreateMigrationCommand.InitializeAsync(this);
-            await CaseMapCoreInitExtension.Commands.ClearWwwrootCommand.InitializeAsync(this);
+            await CaseOneToolkit.Commands.CreateDatabaseCommand.InitializeAsync(this);
+            await CaseOneToolkit.Commands.CreateMigrationCommand.InitializeAsync(this);
+            await CaseOneToolkit.Commands.ClearWwwrootCommand.InitializeAsync(this);
         }
 
         #endregion

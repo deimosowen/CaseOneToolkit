@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.Shell;
 using System.Threading.Tasks;
 
-namespace CaseMapCoreInitExtension
+namespace CaseOneToolkit
 {
     public static class SolutionUtilities
     {

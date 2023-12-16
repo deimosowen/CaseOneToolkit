@@ -1,4 +1,4 @@
-﻿using CaseMapCoreInitExtension.Forms;
+﻿using CaseOneToolkit.Forms;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using System;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Task = System.Threading.Tasks.Task;
 
-namespace CaseMapCoreInitExtension.Commands
+namespace CaseOneToolkit.Commands
 {
     /// <summary>
     /// Command handler
@@ -109,7 +109,7 @@ namespace CaseMapCoreInitExtension.Commands
                     if (form.IsPostgresDb)
                         scriptBuilder.Append("-PostgresDb");
 
-                    PowerShellExecutor.RunScript(scriptBuilder.ToString());
+                    ScriptExecutor.RunScript(scriptBuilder.ToString());
                 }
             }
             catch (Exception ex)

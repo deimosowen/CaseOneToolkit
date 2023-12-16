@@ -2,9 +2,9 @@
 using System.Globalization;
 using System.Windows.Forms;
 
-namespace CaseMapCoreInitExtension.Forms
+namespace CaseOneToolkit.Forms
 {
-    [ProvideToolboxControl("CaseMapCoreInitExtension.Forms.CreateMigrationForm", false)]
+    [ProvideToolboxControl("CaseOneToolkit.Forms.CreateMigrationForm", false)]
     public partial class CreateMigrationForm : Form
     {
         public string MigrationName => migrationName.Text.Trim();

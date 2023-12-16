@@ -9,7 +9,7 @@
 
   <!--The Commands section is where commands, menus, and menu groups are defined.
       This section uses a Guid to identify the package that provides the command defined inside it. -->
-  <Commands package="guidCaseMapCoreInitExtensionPackage">
+  <Commands package="guidCaseOneToolkitPackage">
     <!-- Inside this section we have different sub-sections: one for the menus, another
     for the menu groups, one for the buttons (the actual commands), one for the combos
     and the last one for the bitmaps used. Each element is identified by a command id that
@@ -23,13 +23,13 @@
          group as the part of a menu contained between two lines. The parent of a group
          must be a menu. -->
     <Groups>
-      <Group guid="guidCaseMapCoreInitExtensionPackageCmdSet" id="CaseOneGroup" priority="0x0600">
-        <Parent guid="guidCaseMapCoreInitExtensionPackageCmdSet" id="CaseOneMenu" />
+      <Group guid="guidCaseOneToolkitPackageCmdSet" id="CaseOneGroup" priority="0x0600">
+        <Parent guid="guidCaseOneToolkitPackageCmdSet" id="CaseOneMenu" />
       </Group>
     </Groups>
 
     <Menus>
-	    <Menu guid="guidCaseMapCoreInitExtensionPackageCmdSet" id="CaseOneMenu" priority="0x700" type="Menu">
+	    <Menu guid="guidCaseOneToolkitPackageCmdSet" id="CaseOneMenu" priority="0x700" type="Menu">
 		    <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_TOOLSADDINS"/>
 		    <Strings>
 			    <ButtonText>CaseOne</ButtonText>
@@ -48,22 +48,22 @@
               <CommandFlag>DefaultInvisible</CommandFlag>
               <CommandFlag>DynamicVisibility</CommandFlag>
           If you do not want an image next to your command, remove the Icon node /> -->
-      <Button guid="guidCaseMapCoreInitExtensionPackageCmdSet" id="CreateDatabaseCommandId" priority="0x0100" type="Button">
-        <Parent guid="guidCaseMapCoreInitExtensionPackageCmdSet" id="CaseOneGroup" />
+      <Button guid="guidCaseOneToolkitPackageCmdSet" id="CreateDatabaseCommandId" priority="0x0100" type="Button">
+        <Parent guid="guidCaseOneToolkitPackageCmdSet" id="CaseOneGroup" />
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
           <ButtonText>Create Database</ButtonText>
         </Strings>
       </Button>
-      <Button guid="guidCaseMapCoreInitExtensionPackageCmdSet" id="CreateMigrationCommandId" priority="0x0101" type="Button">
-        <Parent guid="guidCaseMapCoreInitExtensionPackageCmdSet" id="CaseOneGroup" />
+      <Button guid="guidCaseOneToolkitPackageCmdSet" id="CreateMigrationCommandId" priority="0x0101" type="Button">
+        <Parent guid="guidCaseOneToolkitPackageCmdSet" id="CaseOneGroup" />
         <Icon guid="guidImages1" id="bmpPic1" />
         <Strings>
           <ButtonText>Add Migration</ButtonText>
         </Strings>
       </Button>
-      <Button guid="guidCaseMapCoreInitExtensionPackageCmdSet" id="ClearWwwrootCommandId" priority="0x0102" type="Button">
-        <Parent guid="guidCaseMapCoreInitExtensionPackageCmdSet" id="CaseOneGroup" />
+      <Button guid="guidCaseOneToolkitPackageCmdSet" id="ClearWwwrootCommandId" priority="0x0102" type="Button">
+        <Parent guid="guidCaseOneToolkitPackageCmdSet" id="CaseOneGroup" />
         <Icon guid="guidImages2" id="bmpPic1" />
         <Strings>
           <ButtonText>Clear wwwroot</ButtonText>
@@ -86,10 +86,10 @@
 
   <Symbols>
     <!-- This is the package guid. -->
-    <GuidSymbol name="guidCaseMapCoreInitExtensionPackage" value="{4d10bff6-1511-474f-a280-1a81b6915897}" />
+    <GuidSymbol name="guidCaseOneToolkitPackage" value="{4d10bff6-1511-474f-a280-1a81b6915897}" />
 
     <!-- This is the guid used to group the menu commands together -->
-    <GuidSymbol name="guidCaseMapCoreInitExtensionPackageCmdSet" value="{be63337c-ea10-4a31-a622-edb7fb0739d9}">
+    <GuidSymbol name="guidCaseOneToolkitPackageCmdSet" value="{be63337c-ea10-4a31-a622-edb7fb0739d9}">
       <IDSymbol name="CaseOneGroup" value="0x1020" />
       <IDSymbol name="CaseOneMenu" value="0x0200"/>
       <IDSymbol name="CreateDatabaseCommandId" value="0x0100" />

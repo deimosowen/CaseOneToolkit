@@ -2,9 +2,9 @@
 using System;
 using System.Diagnostics;
 
-namespace CaseMapCoreInitExtension
+namespace CaseOneToolkit
 {
-    public static class PowerShellExecutor
+    public static class ScriptExecutor
     {
         public static void RunScript(string scriptText)
         {

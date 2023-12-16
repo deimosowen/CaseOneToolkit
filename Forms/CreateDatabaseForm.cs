@@ -2,9 +2,9 @@
 using System.Globalization;
 using System.Windows.Forms;
 
-namespace CaseMapCoreInitExtension.Forms
+namespace CaseOneToolkit.Forms
 {
-    [ProvideToolboxControl("CaseMapCoreInitExtension.Forms.CreateDatabaseForm", false)]
+    [ProvideToolboxControl("CaseOneToolkit.Forms.CreateDatabaseForm", false)]
     public partial class CreateDatabaseForm : Form
     {
         public bool IsNotDropDb => isNotDropDb.Checked;

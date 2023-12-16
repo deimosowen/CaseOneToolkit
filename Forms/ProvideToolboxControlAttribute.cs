@@ -3,7 +3,7 @@ using System;
 using System.Globalization;
 using System.Runtime.InteropServices;
 
-namespace CaseMapCoreInitExtension.Forms
+namespace CaseOneToolkit.Forms
 {
     /// <summary>
     /// This attribute adds a ToolboxControlsInstaller key for the assembly to install toolbox controls from the assembly.
