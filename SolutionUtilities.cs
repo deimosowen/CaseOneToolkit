@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.Shell;
+﻿using System.IO;
+using Microsoft.VisualStudio.Shell;
 using System.Threading.Tasks;
 
 namespace CaseMapCoreInitExtension
@@ -11,17 +12,10 @@ namespace CaseMapCoreInitExtension
         {
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
             var dte = await ServiceProvider.GetGlobalServiceAsync(typeof(EnvDTE.DTE)) as EnvDTE.DTE;
-            if (dte?.Solution?.Projects == null) return null;
+            if (dte?.Solution == null) return null;
 
-            foreach (EnvDTE.Project project in dte.Solution.Projects)
-            {
-                if (project.Properties.Item("FullPath") is EnvDTE.Property fullPathProperty)
-                {
-                    return fullPathProperty.Value.ToString();
-                }
-            }
-
-            return null;
+            var solutionFilePath = dte.Solution.FullName;
+            return string.IsNullOrEmpty(solutionFilePath) ? null : Path.GetDirectoryName(solutionFilePath);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnvDTE;
+using System;
 using System.Diagnostics;
 
 namespace CaseMapCoreInitExtension
@@ -7,37 +8,15 @@ namespace CaseMapCoreInitExtension
     {
         public static void RunScript(string scriptText)
         {
-            var startInfo = new ProcessStartInfo
+            Microsoft.VisualStudio.Shell.ThreadHelper.ThrowIfNotOnUIThread();
+            try
             {
-                FileName = "powershell.exe",
-                Arguments = $"-ExecutionPolicy Bypass -Command \"{scriptText}\"",
-                UseShellExecute = false,
-                CreateNoWindow = true,
-                RedirectStandardOutput = true,
-                RedirectStandardError = true
-            };
-
-            RunProcess(startInfo);
-        }
-
-        private static void RunProcess(ProcessStartInfo startInfo)
-        {
-            using (var process = Process.Start(startInfo))
+                var objDte = System.Runtime.InteropServices.Marshal.GetActiveObject("VisualStudio.DTE") as DTE;
+                objDte.ExecuteCommand("View.PackageManagerConsole", scriptText);
+            }
+            catch (Exception ex)
             {
-                using (var reader = process.StandardOutput)
-                {
-                    string result = reader.ReadToEnd();
-                    Console.WriteLine(result);
-                }
-
-                using (var reader = process.StandardError)
-                {
-                    string error = reader.ReadToEnd();
-                    if (!string.IsNullOrEmpty(error))
-                    {
-                        throw new InvalidOperationException(error);
-                    }
-                }
+                Debug.WriteLine("Error executing package manager console command: " + ex.Message);
             }
         }
     }

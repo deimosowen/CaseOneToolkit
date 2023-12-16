@@ -47,7 +47,7 @@ namespace CaseMapCoreInitExtension.Forms
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(156, 34);
             this.Save.TabIndex = 0;
-            this.Save.Text = "Create Migration";
+            this.Save.Text = "Add Migration";
             this.Save.UseVisualStyleBackColor = false;
             this.Save.Click += new System.EventHandler(this.Button1_Click);
             // 

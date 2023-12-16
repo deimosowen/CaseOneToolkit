@@ -22,6 +22,8 @@ namespace CaseMapCoreInitExtension.Forms
         private void Button1_Click(object sender, EventArgs e)
         {
             this.Save.Enabled = false;
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

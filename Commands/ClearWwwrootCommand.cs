@@ -98,20 +98,10 @@ namespace CaseMapCoreInitExtension.Commands
                     return;
                 }
 
-                string script = $@"
-                    Remove-Item -Path '{projectRoot}\\Sites\\CaseMap.Core\\wwwroot\\bundles' -Recurse;
-                    Remove-Item -Path '{projectRoot}\\Sites\\CaseMap.Core\\wwwroot\\Content' -Recurse;
-                ";
+                string script = $@"Remove-Item -Path '{projectRoot}\Sites\CaseMap.Core\wwwroot\bundles' -Recurse;
+                    Remove-Item -Path '{projectRoot}\Sites\CaseMap.Core\wwwroot\Content' -Recurse;";
 
                 PowerShellExecutor.RunScript(script);
-
-                VsShellUtilities.ShowMessageBox(
-                    this.package,
-                    "Cleaning was successful.",
-                    "Clear wwwroot",
-                    OLEMSGICON.OLEMSGICON_INFO,
-                    OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                    OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
             }
             catch (Exception ex)
             {
@@ -123,23 +113,6 @@ namespace CaseMapCoreInitExtension.Commands
                     OLEMSGBUTTON.OLEMSGBUTTON_OK,
                     OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
             }
-        }
-
-        private async Task<string> GetActiveProjectRootPathAsync()
-        {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
-            var dte = await ServiceProvider.GetServiceAsync(typeof(EnvDTE.DTE)) as EnvDTE.DTE;
-            if (dte?.Solution?.Projects == null) return null;
-
-            foreach (EnvDTE.Project project in dte.Solution.Projects)
-            {
-                if (project.Properties.Item("FullPath") is EnvDTE.Property fullPathProperty)
-                {
-                    return fullPathProperty.Value.ToString();
-                }
-            }
-
-            return null;
         }
     }
 }

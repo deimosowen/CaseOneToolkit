@@ -59,7 +59,7 @@
         <Parent guid="guidCaseMapCoreInitExtensionPackageCmdSet" id="CaseOneGroup" />
         <Icon guid="guidImages1" id="bmpPic1" />
         <Strings>
-          <ButtonText>Create Migration</ButtonText>
+          <ButtonText>Add Migration</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidCaseMapCoreInitExtensionPackageCmdSet" id="ClearWwwrootCommandId" priority="0x0102" type="Button">

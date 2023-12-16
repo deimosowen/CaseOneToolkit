@@ -99,8 +99,12 @@ namespace CaseMapCoreInitExtension.Commands
 
                     var solutionDirectory = await SolutionUtilities.GetActiveProjectRootPathAsync();
                     var modulePath = Path.Combine(solutionDirectory, SolutionUtilities.ScriptCaseProTools);
+                    var moduleName = Path.GetFileNameWithoutExtension(modulePath);
                     var scriptBuilder = new StringBuilder();
-                    scriptBuilder.AppendLine($"Import-Module '{modulePath}' -Force -DisableNameChecking");
+                    scriptBuilder.AppendLine($"if (-not (Get-Module -Name '{moduleName}')) {{");
+                    scriptBuilder.AppendLine($"    Import-Module '{modulePath}' -Force -DisableNameChecking");
+                    scriptBuilder.AppendLine($"}}");
+                    scriptBuilder.AppendLine($"Set-Location '{solutionDirectory}'");
                     scriptBuilder.Append("CP-Add-Migration ");
 
                     if (form.IsMaintenance)
@@ -115,14 +119,6 @@ namespace CaseMapCoreInitExtension.Commands
                         scriptBuilder.Append("-PostgresDb");
 
                     PowerShellExecutor.RunScript(scriptBuilder.ToString());
-
-                    VsShellUtilities.ShowMessageBox(
-                        this.package,
-                        "Migration added successfully",
-                        "Add Migration",
-                        OLEMSGICON.OLEMSGICON_INFO,
-                        OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                        OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
                 }
             }
             catch (Exception ex)

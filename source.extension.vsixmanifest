@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="CaseMapCoreInitExtension.c0b944b4-f835-4471-a7f7-84e7964336b4" Version="1.0" Language="en-US" Publisher="Denis Ushanev" />
-        <DisplayName>CaseMapCoreInitExtension</DisplayName>
-        <Description xml:space="preserve">CaseMapCoreExtension</Description>
+        <Identity Id="CaseOneToolkit.c0b944b4-f835-4471-a7f7-84e7964336b4" Version="1.2" Language="en-US" Publisher="Denis Ushanev" />
+        <DisplayName>CaseOne Toolkit</DisplayName>
+        <Description xml:space="preserve">"CaseOne Toolkit" is a comprehensive Visual Studio extension designed to enhance efficiency and streamline workflows in .NET projects. It encompasses powerful tools for database migration management, routine task automation, and overall development productivity improvement.</Description>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
