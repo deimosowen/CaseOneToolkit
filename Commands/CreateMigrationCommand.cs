@@ -99,12 +99,8 @@ namespace CaseOneToolkit.Commands
 
                     var solutionDirectory = await SolutionUtilities.GetActiveProjectRootPathAsync();
                     var modulePath = Path.Combine(solutionDirectory, SolutionUtilities.ScriptCaseProTools);
-                    var moduleName = Path.GetFileNameWithoutExtension(modulePath);
                     var scriptBuilder = new StringBuilder();
-                    scriptBuilder.AppendLine($"if (-not (Get-Module -Name '{moduleName}')) {{");
-                    scriptBuilder.AppendLine($"    Import-Module '{modulePath}' -Force -DisableNameChecking");
-                    scriptBuilder.AppendLine($"}}");
-                    scriptBuilder.AppendLine($"Set-Location '{solutionDirectory}'");
+                    scriptBuilder.AppendLine($"Import-Module '{modulePath}' -Force -DisableNameChecking");
                     scriptBuilder.Append("CP-Add-Migration ");
 
                     if (form.IsMaintenance)
